@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:layout_marginBottom="32dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView9"
+            android:src="@drawable/img_about_sos"
+            android:layout_margin="8dp"
+            android:scaleType="fitCenter"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="В сложной ситуации воспользуйтесь тревожной кнопкой"
+                android:id="@+id/textView15"
+                android:textColor="@color/text_color3"
+                style="@style/TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Она позволит вызвать &quot;группу поддержки&quot;"
+                android:id="@+id/textView16"
+                android:textColor="@color/color_black"
+                android:layout_marginTop="8dp"
+                style="@style/TextAppearance.AppCompat.Body2" />
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView8"
+            android:src="@drawable/img_about_location"
+            android:layout_margin="8dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Приложение укажет, где находится человек нуждающийся в помощи"
+                android:id="@+id/textView13"
+                android:textColor="@color/text_color3"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                style="@style/TextAppearance.AppCompat.Body2" />
+
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView7"
+            android:src="@drawable/img_about_help"
+            android:layout_margin="8dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Помощь идет!"
+                android:id="@+id/textView11"
+                android:textColor="@color/text_color3"
+                style="@style/TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Близкие люди предпримут всё, чтобы предотвратить опасную ситуацию."
+                android:id="@+id/textView12"
+                android:textColor="@color/color_black"
+                android:layout_marginTop="8dp"
+                style="@style/TextAppearance.AppCompat.Body2" />
+        </LinearLayout>
+    </TableRow>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Продолжить >"
+        android:id="@+id/butt_next"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/btn_blue_big"
+        android:textColor="@color/color_white"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

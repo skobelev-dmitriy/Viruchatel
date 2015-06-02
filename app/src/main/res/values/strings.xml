@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Viruchatel</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Эл. почта</string>
+    <string name="password">Пароль</string>
+    <string name="Skip_password">Забыли пароль?</string>
+    <string name="vkontakte">Вконтакте</string>
+    <string name="facebook">Фейсбук</string>
+    <string name="signin">Войти</string>
+    <string name="dont_account">Еще нет аккаунта?</string>
+    <string name="signup">Зарегистрироваться</string>
+
+    <string name="need_help">Ждут помощи</string>
+    <string name="messages">Сообщения</string>
+    <string name="frends">Друзья</string>
+    <string name="groups">Группы</string>
+    <string name="gps_tracer">GPS-трекер</string>
+    <string name="profile">Мой профиль</string>
+    <string name="settings">Настройки</string>
+    <string name="about">О программе</string>
+    <string name="title_activity_tutorial">TutorialActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+
+
+</resources>
