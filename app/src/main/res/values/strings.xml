@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="email">Эл. почта</string>
     <string name="password">Пароль</string>
-    <string name="Skip_password">Забыли пароль?</string>
+    <string name="skip_password">Забыли пароль?</string>
     <string name="vkontakte">Вконтакте</string>
     <string name="facebook">Фейсбук</string>
     <string name="signin">Войти</string>
@@ -23,7 +23,26 @@
     <string name="title_activity_tutorial">TutorialActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_main">MainActivity</string>
-
+    <string name="new_email">Укажите эл. почту, чтобы получить ссылку на страницу смены пароля</string>
+    <string name="skip_pass">Восстановление пароля</string>
+    <string name="send">Отправить</string>
+    <string name="cancel">Отменить</string>
+    <string name="save">Сохранить</string>
+    <string name="exit_group">Покинуть группу?</string>
+    <string name="exit_group_msg">Вы действительно хотите покинуть группу</string>
+    <string name="cancel2">Отмена</string>
+    <string name="exit">Выйти</string>
+    <string name="butt_end">Завершить</string>
+    <string name="end_reg_title">Завершение регистрации</string>
+    <string name="end_reg_msg">На вашу эл. почту выслана ссылка с кодом подтверждения. Для окончания регистрации перейдите по этой ссылке.</string>
+    <string name="title_activity_change_pass">Смена пароля</string>
+    <string name="title_activity_signup">Регистрация</string>
+    <string name="new_pass">Новый пароль</string>
+    <string name="new_pass_retry">Подтверждение пароля</string>
+    <string name="fio">Имя и Фамилия</string>
+    <string name="male">Мужчина</string>
+    <string name="female">Женщина</string>
+    <string name="phone">Телефон</string>
 
 
 </resources>

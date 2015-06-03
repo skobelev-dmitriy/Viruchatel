@@ -1,15 +1,9 @@
 package hm.viruchatel;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.blunderer.materialdesignlibrary.activities.Activity;
 import com.blunderer.materialdesignlibrary.activities.NavigationDrawerActivity;
 import com.blunderer.materialdesignlibrary.handlers.ActionBarDefaultHandler;
 import com.blunderer.materialdesignlibrary.handlers.ActionBarHandler;
@@ -53,7 +47,7 @@ public class MainActivity extends NavigationDrawerActivity {
                 .addItem(R.string.gps_tracer, new MessagesFragment())
                 .addItem(R.string.profile, new MessagesFragment())
                 .addItem(R.string.settings, new MessagesFragment())
-                .addItem(R.string.about, new Intent(this, AboutActivity.class));
+                .addItem(R.string.about, new Intent(this, TutorialActivity.class));
 
     }
 

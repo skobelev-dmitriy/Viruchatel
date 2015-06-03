@@ -34,7 +34,7 @@ public class StartActivity extends Activity {
     private void selectActivity() {
 
         if (isFirstStart()){
-            startActivity(new Intent(this, AboutActivity.class));
+            startActivity(new Intent(this, TutorialActivity.class));
 
         }else if(login)
             startActivity(new Intent(this, MainActivity.class) );

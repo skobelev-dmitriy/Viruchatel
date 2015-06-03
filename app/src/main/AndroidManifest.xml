@@ -21,16 +21,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
-        <activity android:name=".MainActivity"
-        android:label="@string/title_activity_main">
-    </activity>
-        <activity android:name=".AboutActivity"
-            android:label="@string/title_activity_main">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".TutorialActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".ChangePassActivity"
+            android:label="@string/title_activity_change_pass" >
+        </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:label="@string/title_activity_signup" >
         </activity>
     </application>
 
