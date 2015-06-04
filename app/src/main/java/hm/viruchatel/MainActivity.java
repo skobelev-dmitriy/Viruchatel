@@ -25,9 +25,9 @@ public class MainActivity extends NavigationDrawerActivity {
 
     @Override
     public NavigationDrawerAccountsMenuHandler getNavigationDrawerAccountsMenuHandler() {
-        return new NavigationDrawerAccountsMenuHandler(this);
-              //  .addAddAccount(new Intent(getApplicationContext(), AddAccountActivity.class))
-              //  .addManageAccounts(new Intent(getApplicationContext(), ManageAccountsActivity.class));
+        return new NavigationDrawerAccountsMenuHandler(this)
+                .addAddAccount(new Intent(getApplicationContext(), SignupActivity.class))
+               .addManageAccounts(new Intent(getApplicationContext(), LoginActivity.class));
     }
 
 
@@ -40,15 +40,21 @@ public class MainActivity extends NavigationDrawerActivity {
     @Override
     public NavigationDrawerTopHandler getNavigationDrawerTopHandler() {
         return new NavigationDrawerTopHandler(this)
-                .addItem(R.string.need_help, new NeedHelpFragment())
-                .addItem(R.string.messages, new MessagesFragment())
-                .addItem(R.string.frends, new MessagesFragment())
-                .addItem(R.string.groups, new MessagesFragment())
-                .addItem(R.string.gps_tracer, new MessagesFragment())
-                .addItem(R.string.profile, new MessagesFragment())
-                .addItem(R.string.settings, new MessagesFragment())
-                .addItem(R.string.about, new Intent(this, TutorialActivity.class));
+                .addItem(R.string.need_help, R.drawable.ic_menu_help, new NeedHelpFragment())
+                .addItem(R.string.messages,R.drawable.ic_menu_messages, new MessagesFragment())
+                .addItem(R.string.frends,R.drawable.ic_menu_fiends, new MessagesFragment())
+                .addItem(R.string.groups,R.drawable.ic_menu_groups, new MessagesFragment())
+                .addItem(R.string.gps_tracer, R.drawable.ic_menu_gps, new MessagesFragment())
+                .addItem(R.string.profile,R.drawable.ic_menu_profile, new MessagesFragment())
+                .addItem(R.string.settings,R.drawable.ic_menu_settings, new MessagesFragment());
+                //.addItem(R.string.about,R.drawable.ic_menu_about, new AboutFragment());
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        //super.onBackPressed();
     }
 
     @Override

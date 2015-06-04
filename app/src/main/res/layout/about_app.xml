@@ -12,19 +12,20 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom">
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView5"
                 android:src="@drawable/img_about_rober"
                 android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView6"
                 android:src="@drawable/img_about_fire"
                 android:layout_weight="1" />
@@ -63,19 +64,20 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom">
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView3"
                 android:src="@drawable/img_about_car"
                 android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView4"
                 android:src="@drawable/img_about_child"
                 android:layout_weight="1" />
@@ -114,19 +116,20 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom">
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView"
                 android:src="@drawable/img_about_elderly"
                 android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageView2"
                 android:src="@drawable/img_about_caraccident"
                 android:layout_weight="1" />

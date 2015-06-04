@@ -1,6 +1,8 @@
 package hm.viruchatel;
 
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +24,11 @@ public class TutorialActivity extends ActionBarActivity {
         viewPager.setAdapter(pagerAdapter);
         //PagerTabStrip tabStrip=(PagerTabStrip)findViewById(R.id.pager_pagination);
        // tabStrip.setBackgroundResource(R.drawable.ic_pagination_actine);
+        SharedPreferences sp=getSharedPreferences("AppPref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sp.edit();
+
+        editor.putBoolean("isFirstStart",false);
+        editor.commit();
 
 
 
@@ -61,6 +68,11 @@ public class TutorialActivity extends ActionBarActivity {
             return "Page " + position;
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+
+       super.onBackPressed();
     }
 
 }

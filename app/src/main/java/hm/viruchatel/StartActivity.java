@@ -4,12 +4,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 
 public class StartActivity extends Activity {
@@ -32,14 +40,17 @@ public class StartActivity extends Activity {
     };
 
     private void selectActivity() {
-
+        Intent intent;
         if (isFirstStart()){
-            startActivity(new Intent(this, TutorialActivity.class));
-
-        }else if(login)
-            startActivity(new Intent(this, MainActivity.class) );
-        else
-            startActivity(new Intent(this, LoginActivity.class));
+            intent = new Intent(this, TutorialActivity.class);
+        }else if(checkLogin()) {
+            intent = new Intent(this, MainActivity.class);
+        } else {
+            intent = new Intent(this, LoginActivity.class);
+              }
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -53,23 +64,35 @@ public class StartActivity extends Activity {
         msg.what=STOPSPLASH;
         splashHandler.sendMessageDelayed(msg, SPLASHTIME);
 
+        try {
+            PackageInfo info =     getPackageManager().getPackageInfo("PROJECTNAME",     PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String sign= Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                Log.e("MY KEY HASH:", sign);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.d("nope","nope");
+        } catch (NoSuchAlgorithmException e) {
+        }
+
 
 
 
     }
-    private void checkLogin(){
-        SharedPreferences sp=getPreferences(Activity.MODE_PRIVATE);
-        login=sp.getBoolean("login",false);
+    private boolean checkLogin(){
+        SharedPreferences sp=getSharedPreferences("AppPref", Activity.MODE_PRIVATE);
+        boolean login=sp.getBoolean("login",false);
         Log.d(TAG, "Login=" + login);
+        return login;
     }
     private boolean isFirstStart(){
-        SharedPreferences sp=getPreferences(Activity.MODE_PRIVATE);
-        boolean isFirst=sp.getBoolean("isFirstStart", false);
+        SharedPreferences sp=getSharedPreferences("AppPref",Activity.MODE_PRIVATE);
+        boolean isFirst=sp.getBoolean("isFirstStart", true);
+        Log.d(TAG, "isFirst Start: "+isFirst);
+        return isFirst;
 
-
-
-        //return isFirst;
-        return true;
     }
 
     @Override

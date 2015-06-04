@@ -25,7 +25,7 @@
         style="@style/Base.TextAppearance.AppCompat.Body2"
         android:layout_marginTop="24dp" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -33,7 +33,8 @@
         android:id="@+id/ed_new_email"
         android:layout_gravity="center_horizontal"
         android:hint="@string/email"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        app:met_floatingLabel="normal"/>
 
     <TableRow
         android:layout_width="match_parent"

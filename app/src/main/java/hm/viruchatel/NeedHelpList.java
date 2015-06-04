@@ -13,7 +13,7 @@ public class NeedHelpList extends ScrollViewFragment {
 
     @Override
     public boolean pullToRefreshEnabled() {
-        return false;
+        return true;
     }
 
     @Override

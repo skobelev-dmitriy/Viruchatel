@@ -1,6 +1,7 @@
 package hm.viruchatel;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -46,7 +47,12 @@ public class TutorialFragment2 extends Fragment {
         butNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity().getApplicationContext(), LoginActivity.class));
+
+
+              Intent  intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
         return view;
