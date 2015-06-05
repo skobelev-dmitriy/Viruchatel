@@ -21,6 +21,18 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:layout_below="@+id/toolbar">
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et_pass_old"
+        android:hint="@string/old_pass"
+        android:layout_marginTop="16dp"
+        app:met_floatingLabel="normal"
+        app:met_minCharacters="6"
+        android:layout_marginBottom="32dp"
+        android:visibility="gone" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"

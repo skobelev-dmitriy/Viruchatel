@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_yellow"
+
+    android:padding="16dp">
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/what_happening"
+            android:layout_marginTop="32dp"
+            android:id="@+id/et_caption" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/what_happening_msg"
+        android:layout_marginTop="32dp"
+        android:id="@+id/et_message" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/alarm_to"
+        android:id="@+id/textView29"
+        android:layout_marginTop="32dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/radio">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/only_friends"
+            android:id="@+id/radioButton"
+            android:button="@drawable/btn_radio_white"
+            android:paddingStart="8dp"
+            android:layout_marginRight="16dp"
+            android:checked="true"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/to_all"
+            android:id="@+id/radioButton2"
+            android:button="@drawable/btn_radio_white"
+            android:paddingStart="8dp"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/i_need_help"
+        android:id="@+id/but_send_alarm"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_blue_big"
+        android:drawableStart="@mipmap/ic_hands"
+        android:drawablePadding="8dp"
+        android:paddingLeft="32dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="32dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView14"
+        android:src="@drawable/img_tracker" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gps_tracer"
+        android:id="@+id/textView17"
+        android:gravity="center_horizontal"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/text_color3" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gps_message"
+        android:id="@+id/textView14"
+        android:layout_gravity="center_horizontal"
+        style="@style/Base.TextAppearance.AppCompat.Body2"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/color_black" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/order"
+        android:id="@+id/button"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_green_big"
+        android:textColor="@color/color_white"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/link"
+        android:id="@+id/button2"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_blue_big"
+        android:textColor="@color/color_white"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+
+</LinearLayout>

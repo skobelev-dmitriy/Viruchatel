@@ -7,16 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-
 
 /**
  * Created by Дмитрий on 02.06.2015.
  */
-public class AboutFragment extends Fragment {
+public class GroupsFragment extends Fragment {
 
-public AboutFragment(){
+public GroupsFragment(){
 
 }
     @Override

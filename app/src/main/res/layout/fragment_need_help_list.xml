@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/empty_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:layout_alignParentLeft="false"
+        android:layout_marginLeft="96dp"
+        android:layout_alignParentTop="false"
+        android:layout_marginTop="96dp"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView26"
+            android:src="@drawable/img_nogroups" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/no_need_help"
+            android:id="@+id/textView27"
+            android:textColor="@color/text_color3"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/no_need_help_msg"
+            android:id="@+id/textView28"
+            android:gravity="center_horizontal"
+            android:textColor="@color/color_black"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/invite_friends"
+            android:id="@+id/but_invite_friends"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_blue_big" />
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        tools:listitem="@layout/item_need_help"
+        android:visibility="visible"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+</android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

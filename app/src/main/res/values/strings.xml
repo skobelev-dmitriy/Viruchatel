@@ -38,12 +38,40 @@
     <string name="end_reg_msg">На вашу эл. почту выслана ссылка с кодом подтверждения. Для окончания регистрации перейдите по этой ссылке.</string>
     <string name="title_activity_change_pass">Смена пароля</string>
     <string name="title_activity_signup">Регистрация</string>
+
+    <string name="old_pass">Старый пароль</string>
     <string name="new_pass">Новый пароль</string>
     <string name="new_pass_retry">Подтверждение пароля</string>
     <string name="fio">Имя и Фамилия</string>
     <string name="male">Мужчина</string>
     <string name="female">Женщина</string>
     <string name="phone">Телефон</string>
+    <string name="gps_link_message" >Если у вас уже есть GPS-трекер, укажите номер его сим-карты</string>
+    <string name="gps_number">Номер сим-карты трекера</string>
+    <string name="gps_message" >Тревожная кнопка - GPS-трекер поможет оповестить и позвать друзей на помощь в трудной ситуации, не используя телефон</string>
+    <string name="order">Заказать</string>
+    <string name="link">Привязать</string>
+    <string name="profile_photo">Фотография профиля</string>
+    <string name="profile_data">Личные данные</string>
+    <string name="link_fb_acc">Привязать аккаунт  Facebook</string>
+    <string name="link_vk_acc">Привязать аккаунт  ВКонтакте</string>
+    <string name="gps_number_2">Номер сим-карты тревожной кнопки</string>
+    <string name="social_network">СОЦИАЛЬНЫЕ СЕТИ</string>
+    <string name="account">АККАУНТ</string>
+    <string name="my_friend">В друзьях</string>
+    <string name="guest">Гость</string>
+    <string name="no_need_help">Помощь никому не требуется</string>
+    <string name="no_need_help_msg">Никто рядом не подал сигнала тревоги. Пригласите друзей, чтобы в нужных момент прийти им на помощь.</string>
+    <string name="invite_friends">Пригласить друзей</string>
+    <string name="what_happening">Что произошло?</string>
+    <string name="what_happening_msg">Описание ситуации</string>
+    <string name="only_friends">Только друзьям</string>
+    <string name="to_all">Всем</string>
+    <string name="alarm_to">Тревога видна:</string>
+    <string name="i_need_help">Попросить помощи</string>
+    <string name="title_activity_sos">SOSActivity</string>
+    <string name="no_message">У вас нет сообщений</string>
+    <string name="no_message_invate">Пригласите друзей, чтобы в нужных момент прийти им на помощь.</string>
 
 
 </resources>

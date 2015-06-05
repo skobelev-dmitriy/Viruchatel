@@ -24,7 +24,7 @@ public class SigninModel {
         }
         mObservable.notifyStarted();
         mIsWorking=true;
-        signinTask=new SigninTask(email, pass, fio, gender, phone);
+        signinTask=new SigninTask(email, pass, fio, gender, phone,null,null,null,null);
         signinTask.execute();
     }
 
@@ -48,18 +48,26 @@ public class SigninModel {
     private class SigninTask extends AsyncTask<Void, Void, Boolean> {
         private String mEmail;
         private String mPassword;
-        private String fio;
-        private int gender;
-        private String phone;
-        private String photo=null;
-        private String city=null;
-        private String street=null;
-        private String house=null;
+        private String mFio;
+        private int mGender;
+        private String mPhone;
+        private String mPhoto;
+        private String mCity;
+        private String mStreet;
+        private String mHouse;
 
         public SigninTask(String email, String pass, String fio, int gender,
                            String phone, String photo, String city,String street, String house) {
             mEmail = email;
             mPassword = pass;
+            mFio=fio;
+            mGender=gender;
+            mPhone=phone;
+            mPhoto=photo;
+            mCity=city;
+            mStreet=street;
+            mHouse=house;
+
         }
 
         @Override
@@ -67,7 +75,7 @@ public class SigninModel {
             final Api communicator = new Api();
 
             try {
-                return communicator.registerNative(email, pass, fio,gender, String phone, String photo, String city,String street, String house);
+                return communicator.registerNative(mEmail, mPassword, mFio,mGender, mPhone, mPhoto, mCity,mStreet, mHouse);
             } catch (InterruptedException e) {
                 Log.d(TAG, "Sign in interrupted");
                 return false;

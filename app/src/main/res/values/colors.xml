@@ -6,4 +6,9 @@
     <color name="color_black">#000000</color>
     <color name="text_color3">#0093ee</color>
     <color name="circle_indicator">#83a1b4</color>
+    <color name="color_light_grey">#f5f5f5</color>
+    <color name="text_color_green">#35bf05</color>
+    <color name="text_color_gray">#999999</color>
+    <color name="text_color_blue_button">#66b1f2</color>
+    <color name="color_yellow">#fab817</color>
 </resources>

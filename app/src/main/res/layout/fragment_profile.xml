@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&quot;Выручатель&quot; - это сервис, который позволит вам всегда прийти на помощь близкому человеку, когда он в этом нуждается, или у вас случилась неприятность."
+        android:text="Профиль"
         android:id="@+id/textView14"
         android:layout_gravity="center_horizontal"
         style="@style/Base.TextAppearance.AppCompat.Medium.Inverse"

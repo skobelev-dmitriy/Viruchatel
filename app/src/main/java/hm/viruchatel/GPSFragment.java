@@ -7,16 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-
 
 /**
  * Created by Дмитрий on 02.06.2015.
  */
-public class AboutFragment extends Fragment {
+public class GPSFragment extends Fragment {
 
-public AboutFragment(){
+public GPSFragment(){
 
 }
     @Override
@@ -33,7 +30,7 @@ public AboutFragment(){
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.fragment_about,container,false);
+        View view=inflater.inflate(R.layout.fragment_gps,container,false);
         return view;
 
     }

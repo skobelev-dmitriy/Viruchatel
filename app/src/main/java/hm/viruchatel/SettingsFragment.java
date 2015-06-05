@@ -2,22 +2,19 @@ package hm.viruchatel;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import hm.viruchatel.Api.ApiInterface;
 import hm.viruchatel.Api.ApplicationInterface;
 
 /**
- * Created by Дмитрий on 02.06.2015.
+ * Created by Дмитрий on 02.03.2015.
  */
-public class NeedHelpFragment extends Fragment implements View.OnClickListener{
+public class SettingsFragment extends Fragment implements View.OnClickListener {
     public static final String TAG ="myLogs";
     ApplicationInterface listener;
 
@@ -43,15 +40,28 @@ public class NeedHelpFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         //return super.onCreateView(inflater, container, savedInstanceState);
-        //   api=new Api();
-        View v=inflater.inflate(R.layout.fragment_need_help, container, false);
-
+     //   api=new Api();
+        View v=inflater.inflate(R.layout.fragment_settings, container, false);
+        Log.d(TAG, "Fr_ onCreateView");
 
         return v;
     }
 
     @Override
     public void onClick(View v) {
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
+    }
+    @Override
+    public void onStop() {
+        // TODO Auto-generated method stub
+        super.onStop();
 
+       /* if (asyncLogin!=null) {
+            Log.d(TAG, "asyncLogin cancel " + asyncLogin.cancel(false));
+        }*/
     }
 }
