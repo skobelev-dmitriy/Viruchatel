@@ -2,8 +2,11 @@ package hm.viruchatel;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -73,9 +76,9 @@ public InviteFriendsFragment(){
 
 
 
-        adapterPhone =new FriendsAdapter(arrayListPhone);
-        adapterVK=new FriendsAdapter(arrayListVK);
-        adapterFB=new FriendsAdapter(arrayListFB);
+        adapterPhone =new FriendsAdapter(arrayListPhone,listViewPhone);
+        adapterVK=new FriendsAdapter(arrayListVK,listViewVK);
+        adapterFB=new FriendsAdapter(arrayListFB,listViewFB);
         listViewPhone.setAdapter(adapterPhone);
         listViewVK.setAdapter(adapterVK);
         listViewFB.setAdapter(adapterFB);
@@ -117,8 +120,18 @@ public InviteFriendsFragment(){
     }
    private void loadFriends() {
        //Загружаем друзей из телефонной книги
+       ContentResolver cr=getActivity().getContentResolver();
+       Cursor cursor=cr.query(ContactsContract.Contacts.CONTENT_URI,null,null,null,null);
+       if (cursor.getCount()>0) {
+           while (cursor.moveToNext()) {
+               int id=cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+               String name=cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 
 
+               arrayListPhone.add(new Friend(id,name));
+           }
+       }
+        adapterPhone.notifyDataSetChanged();
 
       for (int j=0; j<2; j++){
            Friend friend=new Friend();
@@ -154,8 +167,10 @@ public InviteFriendsFragment(){
 
     private class FriendsAdapter extends BaseAdapter {
         ArrayList<Friend>arrayList;
-        public FriendsAdapter (ArrayList<Friend> arrayList){
+        ListView listView;
+        public FriendsAdapter (ArrayList<Friend> arrayList,ListView listView){
             this.arrayList=arrayList;
+            this.listView=listView;
         }
 
 
@@ -178,13 +193,12 @@ public InviteFriendsFragment(){
         public View getView(int position, View convertView, ViewGroup parent) {
             if (getCount()!=0) {
 
-              //  emptyList.setVisibility(View.GONE);
-              //  listView.setVisibility(View.VISIBLE);
 
+                listView.setVisibility(View.VISIBLE);
                 Friend friend=(Friend)getItem(position);
 
                 LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.item_friend, null);
+                convertView = inflater.inflate(R.layout.item_invite_friend, null);
 
                 TextView name = (TextView) convertView.findViewById(R.id.tv_user_name);
 
@@ -205,9 +219,9 @@ public InviteFriendsFragment(){
 
 
             }else{
-               // listView.setVisibility(View.GONE);
+               listView.setVisibility(View.GONE);
 
-             //   emptyList.setVisibility(View.VISIBLE);
+
 
             }
 

@@ -25,6 +25,17 @@ public class Friend {private int numSaved;
         id=1;
 
     }
+    public Friend(int id, String name){
+        this.name=name;
+        city="Москва, Россия";
+        rating="4.75";
+        top="75";
+
+        photo=null;
+
+        this.id=id;
+
+    }
 
     public Friend(String name, String city, String rating, String top, String photo,  int id){
         this.name=name;
