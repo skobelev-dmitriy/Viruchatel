@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/profile_background"
+    android:gravity="center_horizontal"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Положительные:"
+        android:id="@+id/textView24"
+        android:textColor="@color/text_color1"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="123"
+        android:id="@+id/textView50"
+        android:textColor="@color/text_color_green"
+        android:layout_toRightOf="@+id/textView24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Нейтральные:"
+        android:id="@+id/textView48"
+        android:textColor="@color/text_color1"
+        android:layout_below="@+id/textView24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="27"
+        android:id="@+id/textView52"
+        android:textColor="@color/color_yellow"
+        android:layout_below="@+id/textView24"
+        android:layout_toRightOf="@+id/textView48" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Отрицательные:"
+        android:id="@+id/textView49"
+        android:textColor="@color/text_color1"
+        android:layout_below="@+id/textView48" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="10"
+        android:id="@+id/textView53"
+        android:textColor="@color/text_color2"
+        android:layout_below="@+id/textView48"
+        android:layout_toRightOf="@+id/textView49" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView15"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_toRightOf="@+id/textView50"
+        android:layout_marginLeft="16dp"
+        android:layout_alignTop="@+id/textView24"
+        android:layout_alignBottom="@+id/textView49"
+        android:scaleType="fitStart"
+        android:src="@drawable/ic_radio"
+        android:adjustViewBounds="false"
+        android:minHeight="64dp"
+        android:minWidth="64dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оставить отзыв"
+        android:id="@+id/but_new_review"
+        android:layout_below="@+id/textView49"
+        android:background="@drawable/btn_blue"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/color_white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/imageView15" />
+
+</RelativeLayout>

@@ -6,7 +6,6 @@ package hm.viruchatel.models;
 public class Message {
 
     private String time;
-    private String caption;
     private String message;
     private String name;
     private String photo;

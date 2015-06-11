@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:class="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.gms.maps.MapView
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id ="@+id/map"
+                    class="com.google.android.gms.maps.MapView"
+                    map:cameraBearing="0"
+                    map:mapType="normal"
+        android:layout_weight="1" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="ул. Спортивная,25"
+                    android:id="@+id/tv_adress"
+                    android:textColor="@color/color_black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="500м"
+                    android:id="@+id/tv_distance"
+                    android:textColor="@color/text_color_gray"
+                    android:layout_below="@+id/tv_adress"
+                    android:drawableLeft="@drawable/ic_location_arrow"
+                    android:drawablePadding="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="10мин назад"
+                    android:id="@+id/tv_time"
+                    android:textColor="@color/text_color_gray"
+                    android:layout_below="@+id/tv_adress"
+                    android:layout_toRightOf="@+id/tv_distance"
+                    android:layout_marginLeft="16dp"
+                    android:drawableLeft="@drawable/ic_time"
+                    android:drawablePadding="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Не заводится машина"
+                    android:id="@+id/tv_caption"
+                    android:layout_below="@+id/tv_distance"
+                    android:textColor="@color/text_color3"
+                    android:layout_marginTop="32dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Дверью хлопал, стекло протирал..."
+                    android:id="@+id/tv_message"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/tv_caption"
+                    android:textColor="@color/color_black" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/im_photo"
+                    android:src="@drawable/img_user_male"
+                    android:layout_below="@+id/tv_message"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Константин \nКонстантиновский"
+                    android:id="@+id/tv_title"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/tv_message"
+                    android:layout_toRightOf="@+id/im_photo"
+                    android:textColor="@color/text_color_gray"
+                    android:lines="2"
+                    android:layout_alignBottom="@+id/im_photo"
+                    android:gravity="center_vertical" />
+
+            </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,9 +1,13 @@
 package hm.viruchatel.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by Дмитрий on 05.06.2015.
  */
 public class HelpMessage {
+    private  double lat;
+    private  double lng;
     private  String adress;
     private String distance;
     private String time;
@@ -16,7 +20,9 @@ public class HelpMessage {
     public HelpMessage(){
 
     }
-    public HelpMessage(String adress, String distance,String time,String caption,String message,String name,String photo,String minimap,int userType){
+    public HelpMessage(String adress, String distance,String time,String caption,String message,String name,String photo,String minimap,int userType,double lat, double lng){
+        this.lat=lat;
+        this.lng=lng;
         this.adress=adress;
         this.distance=distance;
         this.time=time;
@@ -27,7 +33,9 @@ public class HelpMessage {
         this.name=name;
         this.userType=userType;
     }
-
+public LatLng getCoord(){
+    return new LatLng(lat,lng);
+}
     public String getAdress() {
         return adress;
     }

@@ -111,9 +111,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -162,8 +161,9 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
     private void skipPass(){
         String mail=newMail.getText().toString();
         Log.d(TAG, "new mail: "+mail);
-        Intent intent=new Intent(this,ChangePassActivity.class);
-        startActivity(intent);
+        Intent intent=new Intent(this, ChangePassActivity.class);
+        intent.putExtra("forget",true);
+        startActivity(new Intent());
     }
     private void showSkipDialog(){
 
@@ -175,7 +175,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         send.setOnClickListener(this);
 
 
-        AlertDialog.Builder aBuilder=new AlertDialog.Builder(this)
+        AlertDialog.Builder aBuilder=new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_LIGHT)
                 .setView(v);
 
 
@@ -241,7 +241,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         SharedPreferences.Editor editor=sp.edit();
         editor.putBoolean("login",true);
         editor.commit();
-        Intent intent=new Intent(this,MainActivity.class);
+       Intent intent=new Intent(this,MainActivity.class);
+
         startActivity(intent);
         finish();
     }

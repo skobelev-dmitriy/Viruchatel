@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +21,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hm.viruchatel.Api.ApplicationInterface;
-import hm.viruchatel.models.HelpMessage;
 import hm.viruchatel.models.Message;
 
 /**
@@ -32,6 +31,8 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
     ApplicationInterface listener;
     ListView listView;
     CardView emptyList;
+    Button invite;
+    SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Message> msgList;
     private MessageAdapter myAdapter;
 
@@ -59,12 +60,34 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
         //return super.onCreateView(inflater, container, savedInstanceState);
         //   api=new Api();
         View v=inflater.inflate(R.layout.fragment_messages_list, container, false);
-        listView=(ListView)v.findViewById(R.id.listView);
+        emptyList=(CardView)v.findViewById(R.id.empty_list);
+        invite =(Button)v.findViewById(R.id.but_invite_friends);
+        listView=(ListView)v.findViewById(R.id.list_messages);
         msgList=new ArrayList<Message>();
         myAdapter=new MessageAdapter();
 
         listView.setAdapter(myAdapter);
-        loadMessages();
+        invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.openInviteFriends();
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listener.openChat();
+                Log.d(TAG, "Смотрим чат");
+            }
+        });
+        swipeRefreshLayout=(SwipeRefreshLayout)v.findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadMessages();
+            }
+        });
+
 
 
         return v;
@@ -90,8 +113,9 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
     private void loadMessages(){
         for (int i=0; i<20; i++){
             Message message=new Message(12+":"+23,i*200+" рублей не хватает.:(","Человеческая особь № "+i,null );
-            msgList.add(message);
+           msgList.add(message);
             myAdapter.notifyDataSetChanged();
+            swipeRefreshLayout.setRefreshing(false);
         }
     }
     private class MessageAdapter extends BaseAdapter {
@@ -116,7 +140,7 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (getCount()!=0) {
 
-                //emptyList.setVisibility(View.GONE);
+                emptyList.setVisibility(View.GONE);
                 listView.setVisibility(View.VISIBLE);
                 Message msg = (Message) getItem(position);
                 LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -125,7 +149,7 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
                 TextView time = (TextView) convertView.findViewById(R.id.tv_time);
 
                 TextView message = (TextView) convertView.findViewById(R.id.tv_message);
-                TextView name = (TextView) convertView.findViewById(R.id.tv_name);
+                TextView name = (TextView) convertView.findViewById(R.id.tv_title);
                 ImageView photo = (ImageView) convertView.findViewById(R.id.im_photo);
 
 
@@ -137,7 +161,7 @@ public class MessagesFragment extends Fragment implements View.OnClickListener {
 
             }else{
                 listView.setVisibility(View.GONE);
-                emptyList=(CardView)convertView.findViewById(R.id.empty_list);
+
                 emptyList.setVisibility(View.VISIBLE);
 
             }

@@ -11,4 +11,7 @@
     <color name="text_color_gray">#999999</color>
     <color name="text_color_blue_button">#66b1f2</color>
     <color name="color_yellow">#fab817</color>
+    <color name="profile_background">#cce9fc</color>
+    <color name="profile_background2">#f0f8fe</color>
+    <color name="text_color_dark_gray">#4d4d4d</color>
 </resources>

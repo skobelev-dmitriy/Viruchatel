@@ -8,14 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.rengwuxian.materialedittext.MaterialEditText;
+
 
 public class ChangePassActivity extends ActionBarActivity {
-    EditText pass1, pass2;
-    String sPswd;
+    MaterialEditText oldPass, pass1, pass2;
+    String soldPass,sPswd;
     Toolbar toolbar;
 
     private void saveNewPass(){
@@ -49,14 +52,23 @@ public class ChangePassActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent=getIntent();
+        boolean forget=intent.getBooleanExtra("forget", true);
         setContentView(R.layout.activity_change_pass);
-        pass1=(EditText)findViewById(R.id.et_pass1);
-        pass2=(EditText)findViewById(R.id.et_pass2);
+        oldPass=(MaterialEditText)findViewById(R.id.et_pass_old);
+        pass1=(MaterialEditText)findViewById(R.id.et_pass1);
+        pass2=(MaterialEditText)findViewById(R.id.et_pass2);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.color_white));
 
         toolbar.setLogo(R.drawable.ic_close);
+
+        if (forget){
+            oldPass.setVisibility(View.GONE);
+        }else {
+            oldPass.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

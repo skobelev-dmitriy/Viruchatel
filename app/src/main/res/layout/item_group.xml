@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/im_user_photo"
+        android:src="@drawable/group_image"
+        android:layout_margin="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="tv_title"
+        android:id="@+id/tv_title"
+        android:textColor="@color/text_color1"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/im_user_photo"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="tv_description"
+        android:id="@+id/tv_description"
+        android:textColor="@color/color_black"
+        android:layout_toRightOf="@+id/im_user_photo"
+        android:layout_below="@+id/tv_title"
+        android:ellipsize="end"
+        android:lines="2"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Участников"
+        android:id="@+id/textView40"
+        android:textColor="@color/text_color_gray"
+        android:layout_toRightOf="@+id/im_user_photo"
+        android:layout_below="@+id/tv_description"
+        android:layout_marginRight="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="100"
+        android:id="@+id/tv_num_users"
+        android:textColor="@color/color_yellow"
+        android:layout_toRightOf="@+id/textView40"
+        android:layout_alignBaseline="@+id/textView40" />
+</RelativeLayout>

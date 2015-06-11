@@ -10,11 +10,16 @@
         android:background="@color/text_color3"
         android:minHeight="?attr/actionBarSize">
     </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        >
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+
         android:layout_margin="16dp">
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
@@ -82,7 +87,7 @@
             android:inputType="textPassword"
             app:met_minCharacters="6"
             app:met_floatingLabel="normal"
-            android:id="@+id/et_pass1"
+            android:id="@+id/et_pass21"
             android:hint="@string/password"
             android:layout_marginTop="56dp" />
 
@@ -92,7 +97,7 @@
             android:inputType="textPassword"
             app:met_minCharacters="6"
             app:met_floatingLabel="normal"
-            android:id="@+id/et_pass2"
+            android:id="@+id/et_pass22"
             android:hint="@string/new_pass_retry"
             android:layout_marginTop="16dp" />
 
@@ -107,6 +112,6 @@
 
 
     </LinearLayout>
-
+    </ScrollView>
 
 </RelativeLayout>

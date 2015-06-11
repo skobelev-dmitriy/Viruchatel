@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/im_group_title"
+                    android:src="@drawable/group_image"
+                    android:adjustViewBounds="false"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignBottom="@+id/but_login_group"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="24dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView37"
+        android:adjustViewBounds="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignBottom="@+id/but_login_group"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="24dp"
+        android:background="#7a0e0e0e" />
+
+    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Мы спасаем и пристраиваем в добрые руки бездомных котиков! Волонтеры зоозащиты"
+                    android:id="@+id/tv_group_title"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Администратор"
+                    android:id="@+id/textView51"
+                    android:textColor="@color/color_yellow"
+                    android:layout_below="@+id/tv_group_title"
+                    android:layout_marginLeft="16dp"
+                    style="@style/TextBody2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView51"
+        android:id="@+id/ll_admin">
+
+        <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:id="@+id/im_admin_photo"
+                        android:layout_below="@+id/textView51"
+                        android:src="@drawable/img_user_female"
+                        android:maxWidth="32dp"
+                        android:maxHeight="32dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp" />
+
+        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Анастасия\nМаксимова"
+                        android:id="@+id/tv_admin_name"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/im_admin_photo"
+                        android:lines="2"
+                        style="@style/TextBody1"
+                        android:textColor="@color/color_white"
+                        android:layout_alignTop="@+id/im_admin_photo"
+                        android:layout_alignBottom="@+id/im_admin_photo"
+                        android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView36"
+        android:background="@color/text_color_gray"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/textView51"
+        android:layout_alignBottom="@+id/ll_admin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Участники (102)"
+                    android:id="@+id/tv_group_num"
+                    android:textColor="@color/color_yellow"
+                    android:layout_below="@+id/tv_group_title"
+                    android:layout_toRightOf="@+id/imageView36"
+                    style="@style/TextBody2" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/im_gr_user_photo1"
+                    android:layout_below="@+id/tv_group_num"
+                    android:src="@drawable/img_user_female"
+                    android:maxWidth="32dp"
+                    android:maxHeight="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_alignLeft="@+id/tv_group_num" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/im_gr_user_photo2"
+                    android:layout_below="@+id/tv_group_num"
+                    android:src="@drawable/img_user_female"
+                    android:maxWidth="32dp"
+                    android:maxHeight="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/im_gr_user_photo1"
+                    android:layout_marginLeft="8dp" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/im_gr_user_photo3"
+                    android:layout_below="@+id/tv_group_num"
+                    android:src="@drawable/img_user_female"
+                    android:maxWidth="32dp"
+                    android:maxHeight="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/im_gr_user_photo2"
+                    android:layout_marginLeft="8dp" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/im_gr_user_photo4"
+                    android:layout_below="@+id/tv_group_num"
+                    android:src="@drawable/img_user_female"
+                    android:maxWidth="32dp"
+                    android:maxHeight="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/im_gr_user_photo3"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="+"
+        android:id="@+id/but_plus"
+        android:layout_alignTop="@+id/im_gr_user_photo3"
+        android:layout_alignBottom="@+id/im_gr_user_photo3"
+        android:layout_toRightOf="@+id/im_gr_user_photo3"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/button_transparent"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept_group"
+                    android:id="@+id/but_login_group"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/btn_blue"
+                    android:layout_marginTop="16dp"
+                    android:visibility="invisible"
+                    android:layout_below="@+id/ll_admin" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_group_member"
+                    android:layout_margin="16dp"
+                    android:gravity="center_horizontal"
+                    android:layout_below="@+id/ll_admin">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/write"
+                        android:id="@+id/but_write"
+                        android:background="@drawable/btn_blue"
+                        android:layout_marginRight="8dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/exit"
+                        android:id="@+id/but_exit_group"
+                        android:background="@drawable/btn_friend_red"
+                        android:textColor="@color/text_color2"
+                        android:visibility="visible" />
+                </TableRow>
+
+            </RelativeLayout>
+

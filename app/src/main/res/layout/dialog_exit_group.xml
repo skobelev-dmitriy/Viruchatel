@@ -13,8 +13,9 @@
         android:text="@string/exit_group"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
-        style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:gravity="center_horizontal" />
+        style="@style/TextHeadline"
+        android:gravity="center_horizontal|left"
+        android:textColor="@color/text_color_dark_gray" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,8 +23,9 @@
         android:text="@string/exit_group_msg"
         android:id="@+id/tv_msg"
         android:layout_gravity="center_horizontal"
-        style="@style/Base.TextAppearance.AppCompat.Body2"
-        android:layout_marginTop="24dp" />
+        style="@style/TextBody1"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_color_dark_gray" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -36,13 +38,14 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel2"
             android:id="@+id/but_cancel"
-            style="@style/transparent_button" />
+            style="@style/transparent_button"
+            android:textColor="@color/text_color_dark_gray" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/exit"
-            android:id="@+id/but_send"
+            android:id="@+id/but_exit"
             android:textColor="@color/text_color2"
             style="@style/transparent_button" />
     </TableRow>

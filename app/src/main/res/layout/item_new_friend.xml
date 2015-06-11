@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/im_user_photo"
+        android:src="@drawable/img_user_female"
+        android:layout_margin="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Маргарита Баранова"
+        android:id="@+id/tv_user_name"
+        android:textColor="@color/text_color1"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/im_user_photo"
+        android:layout_marginRight="16dp"
+        android:lines="2" />
+
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/accept"
+    android:id="@+id/but_accept"
+
+        android:layout_marginRight="16dp"
+        android:textColor="@color/color_white"
+    android:background="@drawable/btn_friend_green"
+        android:layout_below="@+id/tv_user_name"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reject"
+        android:id="@+id/but_reject"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/text_color2"
+        android:background="@drawable/btn_friend_red"
+        android:layout_below="@+id/tv_user_name"
+        android:layout_toLeftOf="@+id/but_accept"
+        android:padding="16dp"
+        android:layout_alignBaseline="@+id/but_accept" />
+
+</RelativeLayout>

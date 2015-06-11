@@ -8,5 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listView"
-        tools:listitem="@layout/item_need_help"/>
+        tools:listitem="@layout/item_group"
+        android:divider="@drawable/divider"
+        android:dividerHeight="1dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Пользователь не состоит ни в одной группе."
+        android:textColor="@color/text_color3"
+        android:textSize="24sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:id="@+id/empty_list" />
 </LinearLayout>

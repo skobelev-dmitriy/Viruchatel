@@ -47,8 +47,8 @@ public class SignupActivity extends ActionBarActivity implements SigninModel.Obs
         fio=(MaterialEditText)findViewById(R.id.et_fio);
         phone=(MaterialEditText)findViewById(R.id.et_phone);
         email=(MaterialEditText)findViewById(R.id.et_email);
-        pass1=(MaterialEditText)findViewById(R.id.et_pass1);
-        pass2=(MaterialEditText)findViewById(R.id.et_pass2);
+        pass1=(MaterialEditText)findViewById(R.id.et_pass21);
+        pass2=(MaterialEditText)findViewById(R.id.et_pass22);
         radioGroup=(RadioGroup)findViewById(R.id.radiogroup);
         signup=(Button)findViewById(R.id.but_signup);
 
@@ -109,7 +109,7 @@ public class SignupActivity extends ActionBarActivity implements SigninModel.Obs
     private void checkEqual(MaterialEditText v1,MaterialEditText v2){
         String error="Пароли не совпадают!";
 
-        if(v1.getText().toString().equals(v2.getText().toString())){
+        if(!v1.getText().toString().equals(v2.getText().toString())){
             v2.setError(error);
             errors=true;
         }

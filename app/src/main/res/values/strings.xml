@@ -15,10 +15,14 @@
 
     <string name="need_help">Ждут помощи</string>
     <string name="messages">Сообщения</string>
+    <string name="message">Сообщение</string>
     <string name="frends">Друзья</string>
+    <string name="user_friends">Друзья пользователя</string>
     <string name="groups">Группы</string>
+    <string name="user_groups">Состоит в группах</string>
     <string name="gps_tracer">GPS-трекер</string>
     <string name="profile">Мой профиль</string>
+    <string name="user_profile">Профиль</string>
     <string name="settings">Настройки</string>
     <string name="about">О программе</string>
     <string name="title_activity_tutorial">TutorialActivity</string>
@@ -48,6 +52,7 @@
     <string name="phone">Телефон</string>
     <string name="gps_link_message" >Если у вас уже есть GPS-трекер, укажите номер его сим-карты</string>
     <string name="gps_number">Номер сим-карты трекера</string>
+    <string name="link_gps_number">Привязать GPS-трекер</string>
     <string name="gps_message" >Тревожная кнопка - GPS-трекер поможет оповестить и позвать друзей на помощь в трудной ситуации, не используя телефон</string>
     <string name="order">Заказать</string>
     <string name="link">Привязать</string>
@@ -69,9 +74,41 @@
     <string name="to_all">Всем</string>
     <string name="alarm_to">Тревога видна:</string>
     <string name="i_need_help">Попросить помощи</string>
+    <string name="need_help_2">Требуется помощь</string>
+    <string name="alarm_signal">Сигнал тревоги</string>
     <string name="title_activity_sos">SOSActivity</string>
     <string name="no_message">У вас нет сообщений</string>
     <string name="no_message_invate">Пригласите друзей, чтобы в нужных момент прийти им на помощь.</string>
+    <string name="rating">Рейтинг:</string>
+    <string name="in_top">В топе:</string>
+    <string name="reviews">Отзывы</string>
+    <string name="add_in_friends">Добавить в друзья</string>
+    <string name="saves_me">Меня спасли</string>
+    <string name="send_message">Отправить сообщение</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="close">Закрыть</string>
+    <string name="more_info">Подробнее</string>
+    <string name="invite">Пригласить</string>
+    <string name="add">Добавить</string>
+    <string name="accept">Принять</string>
+    <string name="reject">Отклонить</string>
+    <string name="apply">Установить</string>
+    <string name="apply_guest_city">Установить гостевой город?</string>
+    <string name="guest_city_message">Вы находитесь в городе Алапаевск. Установить этот город в качестве гостевого?</string>
+    <string name="empty_review1">У вас еще нет отзывов.\\nДобавляйте друзей, помогайте друг другу и они это обязательно оценят</string>
+    <string name="empty_review2">У пользователя еще нет отзывов</string>
+    <string name="send_review">Оставить отзыв</string>
+    <string name="accept_group">Вступить в группу</string>
+    <string name="write">Написать</string>
+    <string name="city">Город</string>
+    <string name="street">Улица</string>
+    <string name="house">Дом</string>
+    <string name="user_info_message">Ваш адрес будет отбражаться только в сигналах о помощи, посланных с компьютера. В вашем профиле эта информация не будет доступна.</string>
+    <string name="title_activity_group">GroupActivity</string>
+    <string name="title_activity_user_info">UserInfoActivity</string>
+    <string name="make_photo">Сделать снимок</string>
+    <string name="choose_image">Выбрать изображение</string>
+    <string name="you_review">Ваш отзыв</string>
 
 
 </resources>

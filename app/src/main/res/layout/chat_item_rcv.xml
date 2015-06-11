@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/llaa">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/imageView38"
+        android:src="@drawable/img_user_female"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:maxHeight="48dp"
+        android:maxWidth="48dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/v1"
+        android:gravity="center_vertical"
+        android:background="@color/profile_background2"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView38"
+        android:padding="8dp"
+        android:layout_marginRight="128dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/lbl1"
+            android:textColor="@color/color_black"
+            style="@style/TextBody1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="11.02.2015"
+            android:id="@+id/lbl2"
+            android:textColor="@color/text_color_dark_gray"
+            android:layout_marginTop="8dp"
+            style="@style/TextCaption" />
+
+    </LinearLayout>
+
+</RelativeLayout>

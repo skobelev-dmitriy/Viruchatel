@@ -10,30 +10,54 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/skip_pass"
+        android:text="Друг просит помощи"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
-        style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:gravity="center_horizontal" />
+        android:textColor="@color/color_black"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/TextTitle" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_email"
-        android:id="@+id/textView14"
-        android:layout_gravity="center_horizontal"
-        style="@style/Base.TextAppearance.AppCompat.Body2"
-        android:layout_marginTop="24dp" />
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/ed_new_email"
+        android:text="Сломалась машина"
+        android:id="@+id/tv_caption"
         android:layout_gravity="center_horizontal"
-        android:hint="@string/email"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_color3"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Что-то сломалось"
+        android:id="@+id/tv_message"
+        android:textColor="@color/text_color_gray"
+        android:maxLines="3"
+        android:ellipsize="end" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/im_photo"
+            android:src="@drawable/img_user_female"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Константин Константинопольский"
+            android:id="@+id/tv_name"
+            android:textColor="@color/text_color_gray"
+            android:lines="2" />
+    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
@@ -44,14 +68,22 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:id="@+id/but_cancel" />
+            android:text="@string/close"
+            android:id="@+id/but_close"
+            android:textColor="@color/text_color_gray"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            style="@style/transparent_button" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/send"
-            android:id="@+id/but_send"
-            android:textColor="@color/text_color1" />
+            android:text="@string/more_info"
+            android:id="@+id/but_more_info"
+            android:textColor="@color/text_color1"
+            android:background="@drawable/button_transparent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            style="@style/transparent_button" />
     </TableRow>
 </LinearLayout>
