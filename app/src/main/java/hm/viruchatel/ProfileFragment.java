@@ -5,6 +5,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,7 +28,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     LinearLayout friends, groups, reviews;
     int type=3;
     ApplicationInterface listener;
-
+MenuItem edit_profile;
 
 
 
@@ -55,7 +58,7 @@ public ProfileFragment(){
 
         View view=inflater.inflate(R.layout.fragment_profile,container,false);
 
-
+        setHasOptionsMenu(true);
         numSaved=(TextView)view.findViewById(R.id.tv_num_saved);
         numSaves=(TextView)view.findViewById(R.id.tv_num_saves);
         name=(TextView)view.findViewById(R.id.tv_title);
@@ -85,7 +88,18 @@ public ProfileFragment(){
 
         return view;
     }
-
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        edit_profile = menu.add("edit");
+        edit_profile.setIcon(R.drawable.ic_edit);
+        edit_profile.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        edit_profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                getActivity().getFragmentManager().popBackStackImmediate();
+                return false;
+            }
+        });
+    }
     private void createView(Profile profile){
         numSaved.setText(profile.getNumSavedS());
         numSaves.setText(profile.getNumSavesS());
@@ -104,9 +118,11 @@ public ProfileFragment(){
             addInFriends.setVisibility(View.GONE);
             sendMessage.setVisibility(View.GONE);
             savesMe.setVisibility(View.GONE);
+          //  edit_profile.setVisible(true);
+        }else {
+           // edit_profile.setVisible(false);
+
         }
-
-
     }
 
 

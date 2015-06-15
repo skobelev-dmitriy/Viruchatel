@@ -116,6 +116,7 @@ public class NeedHelpFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 View v = getActivity().getLayoutInflater().inflate(R.layout.dialog_friend_need_help, null);
+                Log.d(TAG,"onItemClick position="+position);
                 Button close = (Button) v.findViewById(R.id.but_close);
                 Button more_info = (Button) v.findViewById(R.id.but_more_info);
                 close.setOnClickListener(NeedHelpFragment.this);
@@ -212,11 +213,12 @@ public class NeedHelpFragment extends Fragment implements View.OnClickListener{
 
     private void loadHelpMessages(){
         for (int i=0; i<20; i++){
-            HelpMessage message=new HelpMessage("ул. Спортивная, д."+i*5,i*100+"м.",i*3+" мин.", "Сломалась "+i+" машин.",i*200+"рублей не хватает.:(","Человеческая особь № "+i,null,null,i%3,56.00385+0.0003*i,92.9148-0.0002*i );
+            HelpMessage message=new HelpMessage("ул. Спортивная, д."+i*5,i*100+"м.",i*3+" мин.", "Сломалась "+i+" машин.",i*200+"рублей не хватает.:(","Человеческая особь № "+i,null,null,0,56.00385+0.0003*i,92.9148-0.0002*i );
             msgList.add(message);
             myAdapter.notifyDataSetChanged();
-            swipeRefreshLayout.setRefreshing(false);
+
         }
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override

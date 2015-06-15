@@ -2,12 +2,14 @@ package hm.viruchatel;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,12 +22,32 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.VKSdkListener;
+import com.vk.sdk.VKUIHelper;
+import com.vk.sdk.api.VKApi;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.api.VKRequest;
+import com.vk.sdk.api.VKResponse;
+import com.vk.sdk.api.model.VKApiUser;
+import com.vk.sdk.api.model.VKList;
+import com.vk.sdk.dialogs.VKCaptchaDialog;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -41,6 +63,13 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
     public static final int CLOSE=3;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
+    private static String[] sMyScope = new String[]{VKScope.FRIENDS, VKScope.WALL, VKScope.PHOTOS, VKScope.NOHTTPS};
+    private static String sTokenKey = "VK_ACCESS_TOKEN";
+    int accountType;
+
+    public static final int NATIVE=0;
+    public static final int FB=1;
+    public static final int VK=2;
     Drawer drawer;
     private static FragmentManager fragmentManager;
     Toolbar toolbar;
@@ -54,16 +83,25 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
     ProfileFragment frProfile=new ProfileFragment();
     AboutFragment frAbout=new AboutFragment();
     SOSFragment sosFragment=new SOSFragment();
-
+    CallbackManager callbackManager;
 
     ImageButton sos;
 
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        VKUIHelper.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  VKSdk.initialize(sdkListener, getResources().getString(R.string.vk_app_id), VKAccessToken.tokenFromSharedPreferences(this, sTokenKey));
+        VKUIHelper.onCreate(this);
+        callbackManager = CallbackManager.Factory.create();
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
@@ -81,6 +119,9 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
         setSupportActionBar(toolbar);
 
      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        SharedPreferences sp=getSharedPreferences("AppPref", Activity.MODE_PRIVATE);
+         accountType= sp.getInt("account_mode",0);
 
         setNavigation(R.drawable.ic_menu, MENU);
         drawer =new  DrawerBuilder()
@@ -148,9 +189,34 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
                })
 
                 .build();
-        fragmentTransact(frNeedHelp, R.string.need_help,false);
+        fragmentTransact(frNeedHelp, R.string.need_help, false);
         ImageButton  but_loguot=(ImageButton)drawer.getHeader().findViewById(R.id.but_logout);
         but_loguot.setOnClickListener(this);
+        final ImageView myPhoto=(ImageView)drawer.getHeader().findViewById(R.id.im_my_photo);
+        final TextView myName=(TextView)drawer.getHeader().findViewById(R.id.tv_name);
+        myPhoto.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+        openUserInfo();
+             }
+        });
+         VKApi.users().get().executeWithListener(new VKRequest.VKRequestListener() {
+             @Override
+             public void onComplete(VKResponse response) {
+                 super.onComplete(response);
+                 VKApiUser user = ((VKList<VKApiUser>)response.parsedModel).get(0);
+                 Log.d("User photo", user.photo_100);
+                 Transformation transformation = new RoundedTransformationBuilder()
+                         .borderColor(Color.WHITE)
+                         .borderWidthDp(3)
+                         .cornerRadiusDp(50)
+                         .oval(false)
+                         .build();
+                 myName.setText(user.first_name + " " + user.last_name);
+
+                 Picasso.with(MainActivity.this).load(user.photo_50).transform(transformation).into(myPhoto);
+             }
+         });
 
     }
 
@@ -161,7 +227,7 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (but_action){
+                switch (but_action) {
                     case MENU:
                         drawer.openDrawer();
                         break;
@@ -180,7 +246,11 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
         });
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        VKUIHelper.onDestroy(this);
+    }
 
     @Override
     public void onBackPressed() {
@@ -363,7 +433,7 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
     @Override
     public void openReviews() {
         fragmentTransact(new ReviewsFragment(),R.string.reviews,true);
-        setNavigation(R.drawable.ic_back,BACK);
+        setNavigation(R.drawable.ic_back, BACK);
 
     }
 
@@ -383,8 +453,11 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
 
     @Override
     public void openChat() {
-        fragmentTransact(new ChatFragment(), "", true);
-        setNavigation(R.drawable.ic_back, BACK);
+        int userId=0;
+        Intent intent=new Intent(this, ChatActivity.class);
+        intent.putExtra("user_id", userId);
+        startActivity(intent);
+
     }
 
     @Override
@@ -413,15 +486,32 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
     @Override
     public void openChangePass() {
         Intent intent=new Intent(this, ChangePassActivity.class);
-        intent.putExtra("forget",false);
+        intent.putExtra("forget", false);
         startActivity(intent);
     }
 
     public void logout() {
         SharedPreferences sp=getSharedPreferences("AppPref", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
-        editor.putBoolean("login",false);
+        switch (accountType){
+            case NATIVE:
+
+                editor.putBoolean("login_native", false);
+
+                break;
+            case FB:
+                editor.putBoolean("login_fb", false);
+                LoginManager.getInstance().logOut();
+                break;
+            case VK:
+                editor.putBoolean("login_vk",false);
+                VKSdk.logout();
+                break;
+        }
         editor.commit();
+
+
+
         Intent   intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
@@ -465,4 +555,37 @@ public class MainActivity extends ActionBarActivity implements ApplicationInterf
 
         return mediaFile;
     }
+    private VKSdkListener sdkListener = new VKSdkListener() {
+        @Override
+        public void onCaptchaError(VKError captchaError) {
+            new VKCaptchaDialog(captchaError).show();
+        }
+
+        @Override
+        public void onTokenExpired(VKAccessToken expiredToken) {
+            VKSdk.authorize(sMyScope);
+        }
+
+        @Override
+        public void onAccessDenied(VKError authorizationError) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setMessage(authorizationError.errorMessage)
+                    .show();
+        }
+
+        @Override
+        public void onReceiveNewToken(VKAccessToken newToken) {
+            newToken.saveTokenToSharedPreferences(MainActivity.this, sTokenKey);
+            Log.d(TAG, "newToken: "+newToken.toString());
+          //  Intent i = new Intent(LoginActivity.this, MainActivity.class);
+           // startActivity(i);
+        }
+
+        @Override
+        public void onAcceptUserToken(VKAccessToken token) {
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(i);
+            Log.d(TAG, "token: "+token.toString());
+        }
+    };
 }

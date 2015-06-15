@@ -190,7 +190,7 @@ public Adapter(ArrayList list, ListView listView)     {
             if (getCount()!=0) {
 
                 emptyList.setVisibility(View.GONE);
-            //listView.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.VISIBLE);
                 Review msg = (Review) getItem(position);
                 LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.item_review, null);
@@ -207,7 +207,7 @@ public Adapter(ArrayList list, ListView listView)     {
                 review.setText(msg.getMessage());
 
                 name.setText(msg.getName());
-                color.setBackgroundColor(R.color.color_yellow);
+                color.setBackgroundColor(getResources().getColor(R.color.color_yellow));
 
             }else{
               listView.setVisibility(View.GONE);

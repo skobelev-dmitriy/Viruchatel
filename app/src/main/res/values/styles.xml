@@ -5,7 +5,7 @@
     <item name="colorPrimary">#0099ff</item>
     <item name="colorPrimaryDark">#007acc</item>
     <item name="colorAccent">@color/color_yellow</item>
-    <item name="android:textColor">@color/color_white</item>
+
 
 
     </style>
@@ -16,6 +16,13 @@
         <item name="android:padding">8dp</item>
         <item name="android:background">@drawable/button_transparent</item>
 
+    </style>
+    <style name="FacebookLoginButton">
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">@drawable/btn_social_fb</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
     <style name="TextHeadline">
         <item name="android:textColor">@color/text_color1</item>

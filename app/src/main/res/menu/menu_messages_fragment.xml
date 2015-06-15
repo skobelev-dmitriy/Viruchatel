@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context="hm.viruchatel.ChangePassActivity">
-    <item android:id="@+id/action_send" android:title="@string/send"
+    <item android:id="@+id/action_save" android:title="" android:icon="@drawable/ic_new_message"
         android:orderInCategory="100" app:showAsAction="always" />
 </menu>

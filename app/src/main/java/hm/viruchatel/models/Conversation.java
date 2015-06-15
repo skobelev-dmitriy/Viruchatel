@@ -26,7 +26,7 @@ public class Conversation {
         msg = "Новое сообщение";
         date = new Date();
         sender = "Маргарита Иванова";
-        send = false;
+        send = true;
     }
 
     public String getMessage() {

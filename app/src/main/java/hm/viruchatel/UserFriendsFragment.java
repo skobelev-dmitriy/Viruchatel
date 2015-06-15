@@ -6,6 +6,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,7 +34,7 @@ public class UserFriendsFragment extends Fragment {
     ArrayList<UserFriend> arrayList;
     TextView emptyList;
     UserFriendsAdapter adapter;
-
+    MenuItem searchFriends;
 public UserFriendsFragment(){
 
 }
@@ -57,6 +60,7 @@ public UserFriendsFragment(){
 
 
         View view=inflater.inflate(R.layout.fragment_groups,container,false);
+        setHasOptionsMenu(true);
         listView=(ListView)view.findViewById(R.id.listView);
         emptyList=(TextView)view.findViewById(R.id.empty_list);
         arrayList=new ArrayList<>();
@@ -74,7 +78,19 @@ public UserFriendsFragment(){
             adapter.notifyDataSetChanged();
         }
     }
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+       searchFriends = menu.add("search");
+        searchFriends.setIcon(R.drawable.ic_search);
+        searchFriends.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        searchFriends.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                getActivity().getFragmentManager().popBackStackImmediate();
 
+                return false;
+            }
+        });
+    }
     @Override
     public void onStop() {
         super.onStop();

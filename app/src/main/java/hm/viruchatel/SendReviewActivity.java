@@ -28,7 +28,15 @@ public class SendReviewActivity extends ActionBarActivity {
             }
         });
 
-
+        toolbar.inflateMenu(R.menu.menu_send_review);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Log.d(TAG, "Отправляем данные");
+                finish();
+                return true;
+            }
+        });
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

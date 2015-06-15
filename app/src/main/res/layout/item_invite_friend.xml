@@ -11,7 +11,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,7 +27,8 @@
         android:textColor="@color/text_color_green"
         android:background="@drawable/btn_friend_green_outlined"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp" />
+        android:paddingRight="8dp"
+        android:layout_centerVertical="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -37,8 +40,10 @@
         android:layout_marginTop="16dp"
         android:layout_toRightOf="@+id/im_user_photo"
         android:layout_marginRight="16dp"
-        android:lines="2"
         android:layout_toLeftOf="@+id/but_invite_add"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:layout_alignParentTop="true"
+        android:maxLines="2"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

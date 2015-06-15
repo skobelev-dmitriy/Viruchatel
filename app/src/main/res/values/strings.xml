@@ -1,5 +1,9 @@
 <resources>
     <string name="facebook_app_id">883641271728093</string>
+
+    <string name="vk_app_id">4943940</string>
+
+
     <string name="app_name">Выручатель</string>
 
     <string name="hello_world">Hello world!</string>
@@ -109,6 +113,10 @@
     <string name="make_photo">Сделать снимок</string>
     <string name="choose_image">Выбрать изображение</string>
     <string name="you_review">Ваш отзыв</string>
+    <string name="title_activity_social_login">SocialLoginActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_from_friends">Удалить из друзей?</string>
 
 
 </resources>

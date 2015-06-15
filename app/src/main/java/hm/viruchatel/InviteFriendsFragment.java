@@ -5,8 +5,11 @@ import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +22,18 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+import com.vk.sdk.api.VKApi;
+import com.vk.sdk.api.VKApiConst;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.api.VKParameters;
+import com.vk.sdk.api.VKRequest;
+import com.vk.sdk.api.VKResponse;
+import com.vk.sdk.api.model.VKApiUserFull;
+import com.vk.sdk.api.model.VKUsersArray;
 
 import java.util.ArrayList;
 
@@ -126,21 +141,53 @@ public InviteFriendsFragment(){
            while (cursor.moveToNext()) {
                int id=cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts._ID));
                String name=cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+               int photo= cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_ID));
 
 
-               arrayListPhone.add(new Friend(id,name));
+               arrayListPhone.add(new Friend(id,name,photo));
            }
        }
         adapterPhone.notifyDataSetChanged();
 
-      for (int j=0; j<2; j++){
-           Friend friend=new Friend();
-           arrayListVK.add(friend);
-           adapterVK.notifyDataSetChanged();
+
+
+
+            VKRequest currentRequest= VKApi.friends().get(VKParameters.from(VKApiConst.FIELDS, "id, first_name,last_name,photo_50"));
+          currentRequest.executeWithListener(new VKRequest.VKRequestListener() {
+              @Override
+              public void onComplete(VKResponse response) {
+                  super.onComplete(response);
+                  VKUsersArray usersArray=(VKUsersArray)response.parsedModel;
+                  for (VKApiUserFull userFull: usersArray){
+                      Friend friend=new Friend(userFull.id,userFull.first_name, userFull.last_name,userFull.photo_50);
+
+                      arrayListVK.add(friend);
+                      adapterVK.notifyDataSetChanged();
+                  }
+              }
+              @Override
+              public void attemptFailed(VKRequest request, int attemptNumber, int totalAttempts) {
+                  super.attemptFailed(request, attemptNumber, totalAttempts);
+                  Log.d("VkDemoApp", "attemptFailed " + request + " " + attemptNumber + " " + totalAttempts);
+              }
+
+              @Override
+              public void onError(VKError error) {
+                  super.onError(error);
+                  Log.d("VkDemoApp", "onError: " + error);
+              }
+
+              @Override
+              public void onProgress(VKRequest.VKProgressType progressType, long bytesLoaded, long bytesTotal) {
+                  super.onProgress(progressType, bytesLoaded, bytesTotal);
+                  Log.d("VkDemoApp", "onProgress " + progressType + " " + bytesLoaded + " " + bytesTotal);
+              }
+          });
+
        }
 
 
-   }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -205,6 +252,18 @@ public InviteFriendsFragment(){
 
                 ImageView photo = (ImageView) convertView.findViewById(R.id.im_user_photo);
                 Button invite=(Button)convertView.findViewById(R.id.but_invite_add);
+
+                Transformation transformation = new RoundedTransformationBuilder()
+                        .borderColor(Color.WHITE)
+                        .borderWidthDp(2)
+                        .cornerRadiusDp(48)
+                        .oval(false)
+                        .build();
+                if (friend.getPhotoId()!=0){
+                    Picasso.with(getActivity()).load(friend.getPhotoId()).transform(transformation).into(photo);
+                }else{
+                    Picasso.with(getActivity()).load(friend.getPhoto50()).transform(transformation).into(photo);
+                }
 
 
 

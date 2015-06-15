@@ -111,7 +111,7 @@
 
 
 
-            </RelativeLayout>
+
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipe"
                 android:layout_width="match_parent"
@@ -164,7 +164,7 @@
                 android:layout_marginTop="0dp"
                 android:divider="@drawable/divider" />
             </android.support.v4.widget.SwipeRefreshLayout>
-
+            </RelativeLayout>
 
         </FrameLayout>
 

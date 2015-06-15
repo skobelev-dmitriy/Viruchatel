@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,7 +28,7 @@ public class SOSFragment extends Fragment {
     Button send;
     boolean errors;
     ApplicationInterface listener;
-
+    MenuItem close;
 public SOSFragment(){
 
 }
@@ -47,7 +50,7 @@ public SOSFragment(){
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        setHasOptionsMenu(true);
         View view=inflater.inflate(R.layout.fragment_sos,container,false);
         caption=(MaterialEditText)view.findViewById(R.id.et_caption);
         message=(MaterialEditText)view.findViewById(R.id.et_message);
@@ -63,6 +66,18 @@ public SOSFragment(){
 
         return view;
 
+    }
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        close = menu.add("close");
+        close.setIcon(R.drawable.ic_close);
+        close.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        close.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                getActivity().getFragmentManager().popBackStackImmediate();
+                return false;
+            }
+        });
     }
     private void sendAlarm(){
         checkViews();

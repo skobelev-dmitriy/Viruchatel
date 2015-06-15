@@ -2,6 +2,7 @@ package hm.viruchatel;
 
 import android.app.Application;
 
+import com.facebook.FacebookSdk;
 
 
 /**
@@ -11,7 +12,7 @@ public class Viruchatel extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
 
     }
